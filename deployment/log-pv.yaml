@@ -2,12 +2,12 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: log-persistent-volume
-  namespace: aditya
+  namespace: rupchand
   labels:
     type: local
 spec:
   volumeMode: Filesystem
-  storageClassName: manual
+  storageClassName: volume-rupchand
   capacity:
     storage: 500Mi
   accessModes:
