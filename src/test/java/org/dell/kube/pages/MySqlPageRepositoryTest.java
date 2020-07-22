@@ -35,10 +35,16 @@ public class MySqlPageRepositoryTest {
     public void setUp() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl(System.getenv("SPRING_DATASOURCE_URL"));
+        String data = System.getenv("SPRING_DATASOURCE_USERNAME");
+        dataSource.setUser(data);
+        data = System.getenv("SPRING_DATASOURCE_PASSWORD");
+        dataSource.setPassword(data);
         repo = new MySqlPageRepository(dataSource);
         jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.execute("DELETE FROM pages");
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+
+
     }
 
     @Test
